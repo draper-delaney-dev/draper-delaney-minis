@@ -1,7 +1,10 @@
-const mongoose = require('mongoose');
-const faker = require('faker');
+const mongoose = require("mongoose");
+const faker = require("faker");
 
-mongoose.connect('mongodb://localhost/metadata', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost/metadata", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // create our metadata Schema
 const metaSchema = new mongoose.Schema({
@@ -23,12 +26,12 @@ const metaSchema = new mongoose.Schema({
 
 // Create our metadata model
 // Models are constructors compiled from Schemas. An instance of a model is called a document
-const metaModel = mongoose.model('metaModel', metaSchema);
+const metaModel = mongoose.model("metaModel", metaSchema);
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', () => {
-// let languageArray = () => {
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", () => {
+  // let languageArray = () => {
   //     let array = ['Spanish', 'French', 'Chinese', 'German'];
   //     let results = [];
   //     for (let i = 0; i < Math.floor(Math.random() * 81)) {
@@ -38,8 +41,15 @@ db.once('open', () => {
   //     }
   // }
   const getLanguages = () => {
-    const languageArray = ['Spanish', 'French', 'German', 'Polish', 'Chinese', 'Russian'];
-    let results = [['English', true, true, true]];
+    const languageArray = [
+      "Spanish",
+      "French",
+      "German",
+      "Polish",
+      "Chinese",
+      "Russian",
+    ];
+    let results = [["English", true, true, true]];
     for (let language of languageArray) {
       if (Math.floor(Math.random() * 2) + 1 > 1) {
         let temp = [];
@@ -47,7 +57,7 @@ db.once('open', () => {
         if (Math.floor(Math.random() * 10) + 1 > 7) {
           temp.push(false);
         } else {
-          temp.push(true)
+          temp.push(true);
         }
         temp.push(true);
         results.push(temp);
@@ -56,9 +66,8 @@ db.once('open', () => {
     return results;
   };
 
-
   const getRating = function () {
-    const rating = ['E', 'T', 'M'];
+    const rating = ["E", "T", "M"];
     const index = Math.floor(Math.random() * 3);
     return rating[index];
   };
@@ -79,12 +88,12 @@ db.once('open', () => {
         developer: faker.company.companyName(),
         publisher: faker.company.companyName(),
         franchise: faker.company.companyName(),
-        releaseDate: faker.date.between('2012-01-17', '2021-01-17'),
+        releaseDate: faker.date.between("2012-01-17", "2021-01-17"),
       });
       metaDocument.save((err) => {
-        if (err) return handleError(err);
+        if (err) return console.log(err);
       });
     }
-    console.log('Database populated');
-  }());
+    console.log("Database populated");
+  })();
 });
