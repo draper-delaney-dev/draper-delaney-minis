@@ -1,24 +1,18 @@
 import React from 'react';
 import './App.css';
+import Main from './components/ui/Main';
+import Nav from './components/ui/Nav';
+import Footer from './components/ui/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Nav />
+            <Main>
+            </Main>
+            <Footer />
+        </>
+    );
 }
 
 export default App;
