@@ -13,18 +13,25 @@
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "formik": "^2.2.9",
+    "joi": "^17.6.4",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-scripts": "5.0.1",
+    "twilio": "^3.83.0",
     "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3023 react-scripts start",
     "build": "react-scripts build",
+    "server-dev": "nodemon server/server.js",
+    "server": "node server/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
