@@ -1,18 +1,20 @@
 import React from 'react';
 
-type Props = {
+type InputFieldProps = {
     classes: string,
+    id: string,
+    name: string,
     type: string,
-    string: string,
     placeholder: string,
     value: string,
+    onBlur: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
-const InputField = ({ classes, type, placeholder, value, onChange }: Props) => {
+const InputField = ({classes, id, name, type, placeholder, value, onBlur, onChange}: InputFieldProps) => {
 
     return (
-        <input type={type} placeholder={placeholder} value={value} onChange={onChange} className={`drop-shadow-md max-w-full rounded p-1 hover:bg-slate-200 ${classes}`} />
+        <input id={id} name={name} type={type} placeholder={placeholder} value={value} onBlur={onBlur} onChange={onChange} className={`drop-shadow-md max-w-full rounded p-1 hover:bg-slate-200 ${classes}`}/>
     );
 };
 
