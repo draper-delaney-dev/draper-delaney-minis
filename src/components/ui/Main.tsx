@@ -1,16 +1,17 @@
 import React from 'react';
 
 type MainProps = {
-    children: React.ReactNode
+  children: React.ReactNode,
+  classes: string,
 }
 
-const Main = ({ children }: MainProps) => {
+const Main = ({children, classes}: MainProps) => {
 
-    return (
-        <div className={`grid items-center min-h-fit`}>
-            {children}
-        </div>
-    );
+  return (
+    <div className={`${classes}`}>
+      {children}
+    </div>
+  );
 };
 
 export default Main;

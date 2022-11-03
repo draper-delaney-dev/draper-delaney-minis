@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { GiHamburgerMenu } from 'react-icons/gi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Nav = () => {
   const [navbar, setNavbar] = useState<boolean>();
@@ -13,7 +13,7 @@ const Nav = () => {
           <a href="#" className="text-xl rounded hover:bg-blue-800 p-2 m-2">Menu</a>
         </div>
         <a href="#" className="lg:flex text-2xl self-center rounded hover:bg-blue-800 p-2 hidden">Order</a>
-        {/* <GiHamburgerMenu size="3rem" className="lg:hidden w-20 self-center align-end min-w-max rounded hover:bg-blue-800 hover:cursor-pointer" onClick={() => setNavbar(!navbar)} /> */}
+        <GiHamburgerMenu size="3rem" className="lg:hidden w-20 self-center align-end min-w-max rounded hover:bg-blue-800 hover:cursor-pointer" onClick={() => setNavbar(!navbar)} />
       </nav>
       <div className={`bg-blue-500 self-center lg:hidden ${navbar ? 'grid' : 'hidden'}`}>
         <a href="#" className="text-xl hover:bg-blue-800 p-2">About</a>
