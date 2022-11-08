@@ -1,12 +1,13 @@
 import React from 'react';
 
 type RequiredProps = {
+  classes: string,
   children: React.ReactNode,
 }
 
-const Required = ({ children }: RequiredProps) => {
+const Required = ({ classes, children }: RequiredProps) => {
   return (
-    <p>
+    <p className={`text-red-500 text-s ${classes}`}>
       {children}
     </p>
   );

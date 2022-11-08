@@ -47,92 +47,102 @@ export default function ContactUs() {
   return (
     <Main classes="grid justify-items-center">
         <div className={'text-center w-7/12'}>
-          <h2>Contact Me</h2>
-          <p>Think our food is fantastic? Or does it taste a bit like plastic? Please let us know with a comment below.</p>
+          <h2 className="text-4xl py-6">Contact Us</h2>
+          <p className="text-xl pb-4">Think our food is fantastic? Or does it taste a bit like plastic? Please let us know with a comment below.</p>
         </div>
 
         <Card classes="w-8/12 p-6 justify-self-center">
-          <form className={'flex flex-col justify-items-center'} onSubmit={(e) => {
+          <form className={'flex flex-col'} onSubmit={(e) => {
             formik.handleSubmit()
           }}>
             {/* Name */}
             {/* <label htmlFor="name">First Name</label> */}
-            <InputField
-              id="name"
-              name="name"
-              type="text"
-              classes="mb-4"
-              placeholder="First Name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-            />
-            {formik.touched.name && formik.errors.name ? (
-              <Required>{formik.errors.name}</Required>
-            ) : null}
+            <div className="mb-4">
+              <InputField
+                id="name"
+                name="name"
+                type="text"
+                classes={`${formik.touched.name && formik.errors.name ? 'border border-red-500': null}`}
+                placeholder="First Name"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+              />
+              {formik.touched.name && formik.errors.name ? (
+                <Required classes="">{formik.errors.name}</Required>
+              ) : null}
+            </div>
 
             {/* Subject */}
             {/* <label htmlFor="subject">Subject</label> */}
-            <InputField
-              id="subject"
-              name="subject"
-              type="text"
-              classes="mb-4"
-              placeholder="Subject"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.subject}
-            />
-            {formik.touched.subject && formik.errors.subject ? (
-              <Required>{formik.errors.subject}</Required>
-            ) : null}
+            <div className="mb-4">
+              <InputField
+                id="subject"
+                name="subject"
+                type="text"
+                classes={`${formik.touched.subject && formik.errors.subject ? 'border border-red-500': null}`}
+                placeholder="Subject"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.subject}
+              />
+              {formik.touched.subject && formik.errors.subject ? (
+                <Required classes="">{formik.errors.subject}</Required>
+              ) : null}
+            </div>
 
             {/* Phone */}
             {/* <label htmlFor="phone">Phone Number</label> */}
-            <InputField
-              id="phone"
-              name="phone"
-              type="text"
-              classes="mb-4"
-              placeholder="Phone Number"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
-            {formik.touched.phone && formik.errors.phone ? (
-              <Required>{formik.errors.phone}</Required>
-            ) : null}
+            <div className="mb-4">
+              <InputField
+                id="phone"
+                name="phone"
+                type="text"
+                classes={`${formik.touched.phone && formik.errors.phone ? 'border border-red-500': null}`}
+                placeholder="Phone Number"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.phone}
+              />
+              {formik.touched.phone && formik.errors.phone ? (
+                <Required classes="">{formik.errors.phone}</Required>
+              ) : null}
+            </div>
 
             {/* Email */}
             {/* <label htmlFor="email">Email</label> */}
-            <InputField
-              id="email"
-              name="email"
-              type="email"
-              classes="mb-4"
-              placeholder="Email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <Required>{formik.errors.email}</Required>
-            ) : null}
+            <div className="mb-4">
+              <InputField
+                id="email"
+                name="email"
+                type="email"
+                classes={`${formik.touched.email && formik.errors.email ? 'border border-red-500': null}`}
+                placeholder="Email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <Required classes="">{formik.errors.email}</Required>
+              ) : null}
+            </div>
 
             {/* Message */}
             {/* <label htmlFor="message">Message</label> */}
-            <TextArea
-              id="message"
-              name="message"
-              classes="mb-4 h-48"
-              placeholder="Message..."
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.message}
-            />
-            {formik.touched.message && formik.errors.message ? (
-              <Required>{formik.errors.message}</Required>
-            ) : null}
+            <div className="mb-4">
+              <TextArea
+                id="message"
+                name="message"
+                classes={`h-48 ${formik.touched.message && formik.errors.message ? 'border border-red-500': null}`}
+                placeholder="Message..."
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.message}
+              />
+              {formik.touched.message && formik.errors.message ? (
+                <Required classes="">{formik.errors.message}</Required>
+              ) : null}
+            </div>
 
             <Button classes="" type="submit">Submit</Button>
 
