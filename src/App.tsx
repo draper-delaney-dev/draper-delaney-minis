@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import Main from './components/ui/Main';
 import Nav from './components/ui/Nav';
 import Footer from './components/ui/Footer';
 import ContactUs from './components/ContactUs/ContactUs';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <Nav />
-      <ContactUs />
+      <Routes>
+        <Route path="/contact" element={<ContactUs />} />
+      </Routes>
       <Footer />
     </>
   );
